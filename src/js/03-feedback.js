@@ -8,10 +8,13 @@ inputEl.addEventListener("input", throttle(storeInputs, 500));
 textareaEl.addEventListener("input", throttle(storeInputs, 500));
 formEl.addEventListener("submit", function(evt) {
     evt.preventDefault();
-    localStorage.clear();
+    localStorage.removeItem("feedback-form-state");
     const email = inputEl.value;
     const message = textareaEl.value;
+    inputEl.value = "";
+    textareaEl.value = "";
     console.log({'email': email,'message': message})
+   
 })
     if(inputStorage) {
         inputStorage = JSON.parse(inputStorage);
